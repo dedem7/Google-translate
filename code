@@ -1,0 +1,18 @@
+import pandas as pd
+import numpy as np
+
+df=pd.read_csv('Untitled spreadsheet - Sheet1.csv', sep=',',header=None)
+data=df.values
+data = data.ravel()
+data=data.astype('str')
+
+
+from google_trans_new import google_translator  
+ 
+translator = google_translator()  
+
+data_translated=[]
+
+for a in data:
+    line=translator.translate(a,lang_src='auto', lang_tgt='en')
+    data_translated.append(line)
